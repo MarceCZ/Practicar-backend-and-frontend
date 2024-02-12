@@ -59,6 +59,29 @@ def loginPathEndPoint(request,username,password):
         }
         return HttpResponse(json.dumps(respuesta))
 
+@csrf_exempt
+def loginPostEndPoint(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        listaUsers = json.loads(usuarios)
+        listaUsersFiltrado = list(
+            filter(
+                lambda x: x["username"]==username and x["password"]==password,listaUsers
+            )
+        )
+    
+        if len(listaUsersFiltrado)>0:
+            respuesta = {
+                "msg": ""
+            }
+        else:
+            respuesta = {
+                "msg": "Error en el login"
+        }
+        return HttpResponse(json.dumps(respuesta))
+
 
 
 

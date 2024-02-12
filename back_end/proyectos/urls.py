@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import loginEndPoint,loginPathEndPoint
+from .views import loginEndPoint,loginPathEndPoint, loginPostEndPoint
 
 urlpatterns = [
     path("login/", loginEndPoint),
     path("login/<str:username>/<str:password>",loginPathEndPoint),
+    path("login-post",loginPostEndPoint)
 ]
