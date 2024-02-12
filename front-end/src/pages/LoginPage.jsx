@@ -12,7 +12,7 @@ const LoginPage = () => {
 
     const loginOnClick = async () => {
 
-        const response = await fetch(`http://localhost:8000/proyectos/login?username=${username}&password=${password}`)
+        const response = await fetch(`http://localhost:8000/proyectos/login/${username}/${password}`)
         const data = await response.json()
 
         if(data.msg === ""){

@@ -39,6 +39,26 @@ def loginEndPoint(request):
         return HttpResponse(json.dumps(respuesta))
 
 
+#Path parameters
+def loginPathEndPoint(request,username,password):
+    if request.method == "GET":
+        listaUsers = json.loads(usuarios)
+        listaUsersFiltrado = list(
+            filter(
+                lambda x: x["username"]==username and x["password"]==password,listaUsers
+            )
+        )
+    
+        if len(listaUsersFiltrado)>0:
+            respuesta = {
+                "msg": ""
+            }
+        else:
+            respuesta = {
+                "msg": "Error en el login"
+        }
+        return HttpResponse(json.dumps(respuesta))
+
 
 
 
