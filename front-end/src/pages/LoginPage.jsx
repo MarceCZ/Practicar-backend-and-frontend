@@ -12,13 +12,14 @@ const LoginPage = () => {
 
     const loginOnClick = async () => {
 
-        const formData = new FormData()
-        formData.append("username",username)
-        formData.append("password",password)
 
-        const response = await fetch("http://localhost:8000/proyectos/login-post",{
+        const response = await fetch("http://localhost:8000/proyectos/login-json",{
             method: "post",
-            body: formData
+            body: JSON.stringify({
+                username: username,
+                password: password
+
+            })
         })
         const data = await response.json()
 
