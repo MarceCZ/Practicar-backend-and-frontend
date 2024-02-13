@@ -13,7 +13,7 @@ const LoginPage = () => {
     const loginOnClick = async () => {
 
 
-        const response = await fetch("http://localhost:8000/proyectos/login-json",{
+        const response = await fetch("http://localhost:8000/proyectos/login",{
             method: "post",
             body: JSON.stringify({
                 username: username,
