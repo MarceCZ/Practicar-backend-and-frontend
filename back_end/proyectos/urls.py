@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import loginPostJsonEndPoint
+from .views import loginPostJsonEndPoint, loginEndPoint
 
 urlpatterns = [
-    path("login",loginPostJsonEndPoint)
+    path("login-json",loginPostJsonEndPoint),
+    path("login",loginEndPoint)
 ]
